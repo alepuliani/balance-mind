@@ -3,6 +3,7 @@ import { meditationsData } from "../data/meditationsData"
 import { Link } from "react-router-dom"
 import { FaPlay } from "react-icons/fa"
 import styled from "styled-components"
+import { useEffect } from "react"
 
 const CardPlay = styled.div`
   position: absolute;
@@ -15,6 +16,10 @@ const CardPlay = styled.div`
 `
 
 const Meditations = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div>
       <h1>Meditations</h1>

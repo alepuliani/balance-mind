@@ -5,7 +5,6 @@ import { IoMdClose } from "react-icons/io"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { meditationsData } from "../data/meditationsData"
-
 // Definizione dello Header con Styled Components
 const Header = styled.header`
   background-color: ${(props) => props.theme.colors.creamColor};
@@ -62,16 +61,21 @@ const SmallLi = styled.li`
 
 const AppHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [meditationsOpen, setMeditationsOpen] = useState(false)
 
   useEffect(() => {
     menuOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto")
+    setMeditationsOpen(false)
   }, [menuOpen])
+
+  const toggleMeditations = function () {
+    setMeditationsOpen(!meditationsOpen)
+  }
 
   return (
     <>
-      {" "}
       <Header>
         <Link to="/">
           <img
@@ -101,17 +105,26 @@ const AppHeader = () => {
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <Li>Home</Li>
           </Link>
-          <Link to="/meditations" onClick={() => setMenuOpen(false)}>
-            <Li>Meditations</Li>
-            <ul>
+
+          <Li onClick={() => toggleMeditations()}>Meditations</Li>
+
+          <ul
+            className={`transition-all duration-400 transform origin-top ${
+              meditationsOpen
+                ? "max-h-screen scale-y-100 opacity-100"
+                : "max-h-0 scale-y-0 opacity-0"
+            }`}
+          >
+            <Link to="/meditations" onClick={() => setMenuOpen(false)}>
               <SmallLi>All</SmallLi>
-              {meditationsData.map((meditation) => {
-                {
-                  return <SmallLi>{meditation.title}</SmallLi>
-                }
-              })}
-            </ul>
-          </Link>
+            </Link>
+            {meditationsData.map((meditation) => {
+              {
+                return <SmallLi>{meditation.title}</SmallLi>
+              }
+            })}
+          </ul>
+
           <Li>About us</Li>
         </ul>
       </NavBar>

@@ -3,8 +3,12 @@ import BaseButton from "../components/BaseButton"
 import Card from "../components/Card"
 import { Link } from "react-router-dom"
 import { meditationBenefits } from "../data/meditationsData"
+import { useEffect } from "react"
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="text-center">
       <div className="flex flex-col items-center">

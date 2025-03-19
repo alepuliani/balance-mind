@@ -12,6 +12,8 @@ const Button = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
   &:hover {
     transform: scale(1.05);
   }

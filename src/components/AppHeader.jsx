@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi"
 import { IoMdClose } from "react-icons/io"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { meditationsData } from "../data/meditationsData"
 
 // Definizione dello Header con Styled Components
 const Header = styled.header`
@@ -41,6 +42,17 @@ const NavBar = styled.nav`
 const Li = styled.li`
   font-size: 2rem;
   font-weight: 500;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`
+
+const SmallLi = styled.li`
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 20px;
 
   &:hover {
     cursor: pointer;
@@ -91,6 +103,14 @@ const AppHeader = () => {
           </Link>
           <Link to="/meditations" onClick={() => setMenuOpen(false)}>
             <Li>Meditations</Li>
+            <ul>
+              <SmallLi>All</SmallLi>
+              {meditationsData.map((meditation) => {
+                {
+                  return <SmallLi>{meditation.title}</SmallLi>
+                }
+              })}
+            </ul>
           </Link>
           <Li>About us</Li>
         </ul>

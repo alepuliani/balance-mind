@@ -7,6 +7,7 @@ const CardDiv = styled.div`
   border-radius: 20px;
   color: #ffffff;
   position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 
   &:hover .card-play {
     display: flex;

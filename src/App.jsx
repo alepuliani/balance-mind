@@ -5,17 +5,18 @@ import { GlobalStyles } from "./styles/globalStyles"
 import Home from "./pages/Home"
 import AppHeader from "./components/AppHeader"
 import Meditations from "./pages/Meditations"
-
+import SingleMeditation from "./pages/SingleMeditation"
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />{" "}
+        <GlobalStyles />
         <BrowserRouter>
           <AppHeader />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/meditations" element={<Meditations />} />
+            <Route path="/meditations/:name" element={<SingleMeditation />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

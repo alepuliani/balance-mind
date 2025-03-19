@@ -1,51 +1,24 @@
 import homeImg from "../assets/images/meditation1-home.png"
 import BaseButton from "../components/BaseButton"
-import peaceImg from "../assets/images/graphics/peace-img.png"
-import selfImg from "../assets/images/graphics/self-img.png"
-import sleepImg from "../assets/images/graphics/sleep-img.png"
-import workImg from "../assets/images/graphics/work-img.png"
 import Card from "../components/Card"
 import { Link } from "react-router-dom"
+import { meditationBenefits } from "../data/meditationsData"
 
 const Home = () => {
-  const meditationBenefits = [
-    {
-      id: 1,
-      title: "Reduce Stress",
-      img: peaceImg,
-      color: "lilacColor"
-    },
-    {
-      id: 2,
-      title: "Boost Mental Clarity",
-      img: workImg,
-      color: "grayColor"
-    },
-    {
-      id: 3,
-      title: "Increase Self-Awareness",
-      img: selfImg,
-      color: "brownColor"
-    },
-    {
-      id: 4,
-      title: "Improve Sleep",
-      img: sleepImg,
-      color: "lightBlueColor"
-    }
-  ]
   return (
     <div className="text-center">
-      <img src={homeImg} alt="" className="mb-10" />
-      <h1>Find your inner peace</h1>
-      <p>
-        Through guided meditations, calming sounds, and personalized routines,
-        we help you <strong>create a balanced, peaceful life</strong>.
-      </p>
-
-      <Link to="/meditations">
-        <BaseButton>Start now</BaseButton>
-      </Link>
+      <div className="flex flex-col items-center">
+        {" "}
+        <img src={homeImg} alt="" className="w-[70%]" />
+        <h1>Find your inner peace</h1>
+        <p>
+          Through guided meditations, calming sounds, and personalized routines,
+          we help you <strong>create a balanced, peaceful life</strong>.
+        </p>
+        <Link to="/meditations">
+          <BaseButton>Start now</BaseButton>
+        </Link>
+      </div>
 
       <div className="text-start">
         <h2>Why Meditate?</h2>

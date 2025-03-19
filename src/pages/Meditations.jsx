@@ -1,5 +1,5 @@
 import Card from "../components/Card"
-import meditationsData from "../data/meditationsData"
+import { meditationsData } from "../data/meditationsData"
 import { Link } from "react-router-dom"
 import { FaPlay } from "react-icons/fa"
 import styled from "styled-components"
@@ -21,7 +21,11 @@ const Meditations = () => {
       <div className="grid grid-cols-1 gap-10 place-items-center">
         {meditationsData.map((meditation) => {
           return (
-            <Link key={meditation.id} className="w-[350px]">
+            <Link
+              key={meditation.id}
+              className="w-[350px]"
+              to={`/meditations/${encodeURIComponent(meditation.title)}`}
+            >
               <Card color={meditation.color}>
                 <div className="flex flex-col items-center">
                   <img
@@ -31,7 +35,6 @@ const Meditations = () => {
                   />
                   <h2 className="text-white">{meditation.title}</h2>
                   <p>{meditation.description}</p>
-                  <audio src={meditation.audio} />
                 </div>
                 <CardPlay className="card-play">
                   <FaPlay className="size-14 mb-17" />

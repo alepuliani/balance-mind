@@ -52,6 +52,7 @@ const SmallLi = styled.li`
   font-size: 1.2rem;
   font-weight: 500;
   margin-left: 20px;
+  padding-bottom: 10px;
 
   &:hover {
     cursor: pointer;
@@ -101,7 +102,7 @@ const AppHeader = () => {
           className="fixed right-4 top-4 size-10 hover:cursor-pointer"
           onClick={() => setMenuOpen(false)}
         />
-        <ul className="w-[50%] flex flex-col  justify-center">
+        <ul className=" flex flex-col justify-center">
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <Li>Home</Li>
           </Link>
@@ -109,10 +110,8 @@ const AppHeader = () => {
           <Li onClick={() => toggleMeditations()}>Meditations</Li>
 
           <ul
-            className={`transition-all duration-400 transform origin-top ${
-              meditationsOpen
-                ? "max-h-screen scale-y-100 opacity-100"
-                : "max-h-0 scale-y-0 opacity-0"
+            className={`transition-all duration-400 transform origin-top list-disc z-0 ${
+              meditationsOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <Link to="/meditations" onClick={() => setMenuOpen(false)}>
@@ -125,7 +124,13 @@ const AppHeader = () => {
             })}
           </ul>
 
-          <Li>About us</Li>
+          <Link
+            className="z-10"
+            to="/breathwork"
+            onClick={() => setMenuOpen(false)}
+          >
+            <Li>Breathwork</Li>
+          </Link>
         </ul>
       </NavBar>
     </>

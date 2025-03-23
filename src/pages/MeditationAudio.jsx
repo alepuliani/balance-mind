@@ -13,7 +13,7 @@ const LoopBtn = styled.button`
   cursor: pointer;
 `
 
-const SingleMeditation = () => {
+const MeditationAudio = () => {
   const [playing, setPlaying] = useState(false)
   const [loop, setLoop] = useState(false)
   const { name } = useParams()
@@ -64,6 +64,11 @@ const SingleMeditation = () => {
     }
   }
 
+  const stop = () => {
+    audio.load()
+    setPlaying(false)
+  }
+
   const meditation = meditationsData.find(
     (meditation) => meditation.title === decodeURIComponent(name)
   )
@@ -82,7 +87,7 @@ const SingleMeditation = () => {
       </div>
 
       <div className="bg-zinc-700 py-2 px-6 flex items-center justify-between text-l w-[150px] rounded-3xl my-3.5 text-white">
-        <button className="hover:cursor-pointer" onClick={() => audio.load()}>
+        <button className="hover:cursor-pointer" onClick={() => stop()}>
           <FaStop />
         </button>
         <button
@@ -98,4 +103,4 @@ const SingleMeditation = () => {
     </div>
   )
 }
-export default SingleMeditation
+export default MeditationAudio

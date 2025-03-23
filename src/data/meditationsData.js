@@ -2,7 +2,7 @@ import rainforestAudio from "../assets/audio/rainforest-audio.mp3"
 import wavesAudio from "../assets/audio/waves-sound.wav"
 import birdsAudio from "../assets/audio/forest-birds-sound.wav"
 import chimesAudio from "../assets/audio/chimes-sound.mp3"
-import musicAudio from "../assets/audio/music-sound.mp3"
+import harmonyAudio from "../assets/audio/music-sound.mp3"
 
 import forestImg from "../assets/images/meditations/forest-photo.jpg"
 import relaxImg from "../assets/images/meditations/relax-photo.jpg"
@@ -61,7 +61,7 @@ export const meditationsData = [
     description:
       "Allow the soothing sounds to gently calm your mind and bring a sense of deep relaxation.",
     sound: "Soothing melodies, calming tones, peaceful ambiance.",
-    audio: musicAudio,
+    soundSrc: harmonyAudio,
     image: relaxImg,
     color: "brownColor"
   }

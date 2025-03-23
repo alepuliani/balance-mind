@@ -5,7 +5,8 @@ import { GlobalStyles } from "./styles/globalStyles"
 import Home from "./pages/Home"
 import AppHeader from "./components/AppHeader"
 import Meditations from "./pages/Meditations"
-import SingleMeditation from "./pages/SingleMeditation"
+import MeditationAudio from "./pages/MeditationAudio"
+import BreathWork from "./pages/BreathWork"
 function App() {
   return (
     <>
@@ -16,7 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/meditations" element={<Meditations />} />
-            <Route path="/meditations/:name" element={<SingleMeditation />} />
+            <Route path="/meditations/:name" element={<MeditationAudio />} />
+            <Route path="/breathwork" element={<BreathWork />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

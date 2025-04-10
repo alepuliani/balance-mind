@@ -22,6 +22,9 @@ const MeditationAudio = () => {
   const [duration, setDuration] = useState(0)
 
   const audio = audioRef.current
+  const meditation = meditationsData.find(
+    (meditation) => meditation.title === decodeURIComponent(name)
+  )
 
   useEffect(() => {
     const audio = audioRef.current
@@ -37,6 +40,10 @@ const MeditationAudio = () => {
       audio.removeEventListener("loadedmetadata", setAudioDuration)
     }
   }, [audio])
+
+  useEffect(() => {
+    setPlaying(false)
+  }, [meditation])
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60)
@@ -69,9 +76,6 @@ const MeditationAudio = () => {
     setPlaying(false)
   }
 
-  const meditation = meditationsData.find(
-    (meditation) => meditation.title === decodeURIComponent(name)
-  )
   return (
     <div className="flex flex-col items-center px-5">
       <img

@@ -4,26 +4,27 @@ import styled from "styled-components"
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.lilacColor};
   color: #ffffff;
-  padding: 10px;
+  padding: 10px 40px;
   margin: 30px;
-  width: 250px;
   border: none;
-  border-radius: 22px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
 
   &:hover {
     transform: scale(1.05);
   }
 `
 
-const BaseButton = ({ children }) => {
-  return <Button>{children}</Button>
+const BaseButton = ({ onClick, children }) => {
+  return <Button onClick={onClick}>{children}</Button>
 }
-export default BaseButton
 
 BaseButton.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired // Aggiungi questa prop
 }
+export default BaseButton

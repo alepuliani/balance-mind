@@ -11,7 +11,7 @@ body {
 h1 {
   font-size: 2.5rem;
   line-height: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   color: ${(props) => props.theme.colors.brownColor};
   margin: 20px 0;
   text-align: center

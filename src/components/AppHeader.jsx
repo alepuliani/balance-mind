@@ -119,7 +119,16 @@ const AppHeader = () => {
             </Link>
             {meditationsData.map((meditation) => {
               {
-                return <SmallLi>{meditation.title}</SmallLi>
+                return (
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    key={meditation.id}
+                    className="w-[350px]"
+                    to={`/meditations/${encodeURIComponent(meditation.title)}`}
+                  >
+                    <SmallLi>{meditation.title}</SmallLi>
+                  </Link>
+                )
               }
             })}
           </ul>

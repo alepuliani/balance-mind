@@ -16,10 +16,10 @@ const Home = () => {
         <img src={homeImg} alt="" className="w-[70%]" />
         <h1>Find your inner peace</h1>
         <p>
-          Through guided meditations, calming sounds, and personalized routines,
-          we help you <strong>create a balanced, peaceful life</strong>.
+          Discover calm through guided meditations, soothing sounds, and
+          personalized breathwork.
         </p>
-        <Link to="/meditations">
+        <Link to="/personalmeditations">
           <BaseButton>Start now</BaseButton>
         </Link>
       </div>
@@ -27,15 +27,15 @@ const Home = () => {
       <div className="text-start">
         <h2>Why Meditate?</h2>
         <p>
-          Meditation is more than just a practice; it’s a way to find strong,
-          clarity, and balance in the midst of life’s chaos. Whether you’re
-          looking to <strong>reduce stress</strong>,{" "}
-          <strong>improve focus</strong>, or enhance your{" "}
-          <strong>emotional well-being</strong>, meditation offers numerous
-          benefits for both your mind and body.
+          Meditation is more than just a practice — it’s a powerful tool for
+          creating space in your mind, calming your emotions, and reconnecting
+          with yourself. Whether you’re seeking to{" "}
+          <strong>reduce stress</strong>, <strong>improve focus</strong>, or
+          simply <strong>breathe more deeply</strong>, meditation supports both
+          mental and physical well-being.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4 my-8 ">
+      <div className="grid grid-cols-2 my-8 ">
         {meditationBenefits.map((benefit) => (
           <Card key={benefit.id} color={benefit.color}>
             <div className="flex flex-col items-center justify-center">

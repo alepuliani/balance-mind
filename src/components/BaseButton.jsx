@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.lilacColor};
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 10px 20px;
   margin: 30px;
   border: none;
   border-radius: 10px;
@@ -13,7 +13,7 @@ const Button = styled.button`
   text-transform: uppercase;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-weight: 700;
-
+  font-size: 13px;
   &:hover {
     transform: scale(1.05);
   }

@@ -1,9 +1,10 @@
 export const theme = {
   colors: {
-    lilacColor: "#caa3d5",
-    greenColor: "#6e9158",
+    lilacColor: "#e2bfeb",
+    greenColor: "#b7dbde",
     brownColor: "#bc9b75",
     creamColor: "#f9f8f4",
+    yellowColor: "#f0e9c1",
     lightBlueColor: "#c8e2ee ",
     grayColor: "#bababa",
     darkBlueColor: "#273140",

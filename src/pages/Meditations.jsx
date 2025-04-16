@@ -32,15 +32,13 @@ const Meditations = () => {
               to={`/meditations/${encodeURIComponent(meditation.title)}`}
             >
               <Card color={meditation.color}>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={meditation.image}
-                    alt="meditation image"
-                    className="rounded-xl w-[310px] h-[310px] object-cover"
-                  />
-                  <h2 className="text-white">{meditation.title}</h2>
-                  <p>{meditation.description}</p>
-                </div>
+                <img
+                  src={meditation.image}
+                  alt="meditation image"
+                  className="rounded-xl w-[310px] h-[310px] object-cover"
+                />
+                <h2 className="text-white">{meditation.title}</h2>
+                <p>{meditation.description}</p>
                 <CardPlay className="card-play">
                   <FaPlay className="size-14 mb-17" />
                 </CardPlay>

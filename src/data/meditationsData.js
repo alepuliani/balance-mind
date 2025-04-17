@@ -24,7 +24,8 @@ export const meditationsData = [
     sound: "Birds chirping, gentle rustling of leaves, soft breeze.",
     soundSrc: birdsAudio,
     image: forestImg,
-    color: "greenColor"
+    color: "greenColor",
+    type: "calm"
   },
   {
     id: 2,
@@ -33,7 +34,8 @@ export const meditationsData = [
     sound: "Sound of waves, sea breeze.",
     soundSrc: wavesAudio,
     image: seaImg,
-    color: "lightBlueColor"
+    color: "lightBlueColor",
+    type: "sleep"
   },
   {
     id: 3,
@@ -43,7 +45,8 @@ export const meditationsData = [
     sound: "Tropical rain, distant thunder, chirping birds.",
     soundSrc: rainforestAudio,
     image: rainImg,
-    color: "darkBlueColor"
+    color: "darkBlueColor",
+    type: "energy"
   },
   {
     id: 4,
@@ -53,7 +56,8 @@ export const meditationsData = [
     sound: "Meditation chimes, soft birdsong, gentle breeze.",
     soundSrc: chimesAudio,
     image: meditationImg,
-    color: "lilacColor"
+    color: "lilacColor",
+    type: "calm"
   },
   {
     id: 5,
@@ -63,7 +67,8 @@ export const meditationsData = [
     sound: "Soothing melodies, calming tones, peaceful ambiance.",
     soundSrc: harmonyAudio,
     image: relaxImg,
-    color: "brownColor"
+    color: "brownColor",
+    type: "sleep"
   }
 ]
 

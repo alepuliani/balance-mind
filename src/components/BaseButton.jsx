@@ -25,6 +25,6 @@ const BaseButton = ({ onClick, children }) => {
 
 BaseButton.propTypes = {
   children: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired // Aggiungi questa prop
+  onClick: PropTypes.func // Aggiungi questa prop
 }
 export default BaseButton

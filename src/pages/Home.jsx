@@ -35,7 +35,7 @@ const Home = () => {
           mental and physical well-being.
         </p>
       </div>
-      <div className="grid grid-cols-2 my-8 ">
+      <div className="grid grid-cols-2 my-8 gap-4">
         {meditationBenefits.map((benefit) => (
           <Card key={benefit.id} color={benefit.color}>
             <div className="flex flex-col items-center justify-center">

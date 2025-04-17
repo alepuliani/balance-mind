@@ -12,8 +12,8 @@ const CardDiv = styled.div`
   color: #ffffff;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  margin: 20px;
   text-align: center;
+  transition: transform 0.2s ease-in-out;
 
   &:hover .card-play {
     display: flex;
@@ -21,15 +21,24 @@ const CardDiv = styled.div`
     align-items: center;
     cursor: pointer;
   }
+
+  &.card-button:hover {
+    transform: scale(1.03);
+  }
 `
 
-const Card = ({ color, children }) => {
-  return <CardDiv color={color}>{children}</CardDiv>
+const Card = ({ color, children, className }) => {
+  return (
+    <CardDiv color={color} className={className}>
+      {children}
+    </CardDiv>
+  )
 }
 export default Card
 
 Card.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string,
-  meditation: PropTypes.object
+  meditation: PropTypes.object,
+  className: PropTypes.string
 }

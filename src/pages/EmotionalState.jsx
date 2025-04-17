@@ -32,18 +32,19 @@ const EmotionalState = function () {
         Welcome to your personal meditation journey. <br /> Choose one of the
         options below, and let’s start your practice.
       </p>
-
-      {emotions.map((emotion) => {
-        return (
-          <Link key={emotion.title}>
-            <Card color={emotion.color}>
-              {emotion.icon}
-              <h2>{emotion.title}</h2>
-              <p>{emotion.text}</p>
-            </Card>
-          </Link>
-        )
-      })}
+      <div className="grid grid-cols-1 gap-6 m-10">
+        {emotions.map((emotion) => {
+          return (
+            <Link key={emotion.title}>
+              <Card color={emotion.color} className="card-button">
+                {emotion.icon}
+                <h2>{emotion.title}</h2>
+                <p>{emotion.text}</p>
+              </Card>
+            </Link>
+          )
+        })}
+      </div>
     </div>
   )
 }

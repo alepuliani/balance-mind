@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import { FaPlayCircle, FaPauseCircle, FaStop } from "react-icons/fa"
 import { RxLoop } from "react-icons/rx"
 import styled from "styled-components"
+import Spinner from "../components/Spinner"
 
 const LoopBtn = styled.button`
   color: ${(props) => (props.loop ? "black" : "white")};
@@ -20,6 +21,7 @@ const MeditationAudio = () => {
   const audioRef = useRef(null)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [imageLoading, setImageLoading] = useState(true)
 
   const audio = audioRef.current
   const meditation = meditationsData.find(
@@ -43,6 +45,10 @@ const MeditationAudio = () => {
 
   useEffect(() => {
     setPlaying(false)
+  }, [meditation])
+
+  useEffect(() => {
+    setImageLoading(true) // Ogni volta che la meditazione cambia, settiamo il loading a true
   }, [meditation])
 
   const formatTime = (time) => {
@@ -78,31 +84,39 @@ const MeditationAudio = () => {
 
   return (
     <div className="flex flex-col items-center px-5">
-      <img
-        src={meditation.image}
-        alt="meditation image"
-        className="rounded-xl w-[310px] h-[310px] object-cover"
-      />
-      <h1>{meditation.title}</h1>
-      <p className="text-black">{meditation.description}</p>
-      <audio src={meditation.soundSrc} ref={audioRef}></audio>
-      <div className="text-black text-3xl font-bold mt-4">
-        {formatTime(currentTime)} / {formatTime(duration)}
-      </div>
+      {imageLoading && <Spinner></Spinner>}
+      <div
+        className={`flex flex-col items-center ${
+          imageLoading ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <img
+          src={meditation.image}
+          alt="meditation image"
+          className={`rounded-xl w-[310px] h-[310px] object-cover `}
+          onLoad={() => setImageLoading(false)}
+        />
+        <h1>{meditation.title}</h1>
+        <p className="text-black">{meditation.description}</p>
+        <audio src={meditation.soundSrc} ref={audioRef}></audio>
+        <div className="text-black text-3xl font-bold mt-4">
+          {formatTime(currentTime)} / {formatTime(duration)}
+        </div>
 
-      <div className="bg-zinc-700 py-2 px-6 flex items-center justify-between text-l w-[150px] rounded-3xl my-3.5 text-white">
-        <button className="hover:cursor-pointer" onClick={() => stop()}>
-          <FaStop />
-        </button>
-        <button
-          className="text-3xl cursor-pointer"
-          onClick={() => togglePlay()}
-        >
-          {!playing ? <FaPlayCircle /> : <FaPauseCircle />}
-        </button>
-        <LoopBtn loop={loop} onClick={() => toggleLoop()}>
-          <RxLoop />
-        </LoopBtn>
+        <div className="bg-zinc-700 py-2 px-6 flex items-center justify-between text-l w-[150px] rounded-3xl my-3.5 text-white">
+          <button className="hover:cursor-pointer" onClick={() => stop()}>
+            <FaStop />
+          </button>
+          <button
+            className="text-3xl cursor-pointer"
+            onClick={() => togglePlay()}
+          >
+            {!playing ? <FaPlayCircle /> : <FaPauseCircle />}
+          </button>
+          <LoopBtn loop={loop} onClick={() => toggleLoop()}>
+            <RxLoop />
+          </LoopBtn>
+        </div>
       </div>
     </div>
   )

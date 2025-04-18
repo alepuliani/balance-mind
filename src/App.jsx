@@ -8,6 +8,7 @@ import Meditations from "./pages/Meditations"
 import MeditationAudio from "./pages/MeditationAudio"
 import BreathWork from "./pages/BreathWork"
 import EmotionalState from "./pages/EmotionalState"
+import PersonalizedMeditation from "./pages/PersonalizedMeditation"
 function App() {
   return (
     <>
@@ -21,6 +22,10 @@ function App() {
             <Route path="/meditations/:name" element={<MeditationAudio />} />
             <Route path="/breathwork" element={<BreathWork />} />
             <Route path="/personalmeditations" element={<EmotionalState />} />
+            <Route
+              path="/personalmeditations/:name"
+              element={<PersonalizedMeditation />}
+            />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

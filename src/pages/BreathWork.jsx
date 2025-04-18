@@ -2,6 +2,7 @@ import { useState } from "react"
 import styled from "styled-components"
 import BaseButton from "../components/BaseButton"
 import { FaRegCircle } from "react-icons/fa"
+import { useLocation } from "react-router-dom"
 
 const IntroDiv = styled.div`
   display: ${(props) => (props.started ? "none" : "flex")};
@@ -27,6 +28,12 @@ const BreathWork = () => {
   const [growthDuration, setGrowthDuration] = useState(4)
   const [breathePhase, setBreathePhase] = useState("")
 
+  const location = useLocation()
+  const { inhale, hold, exhale } = location.state
+
+  const time = function (type) {
+    return 1000 * type
+  }
   const startBreath = () => {
     setBreathingStarted(true)
     setTimer(3)
@@ -46,31 +53,27 @@ const BreathWork = () => {
     setSize(50)
     setBreathePhase("Inhale")
     setTimeout(() => {
-      setGrowthDuration(4)
+      setGrowthDuration(inhale)
       setSize(200)
       setTimeout(() => {
         setBreathePhase("Hold")
-        setGrowthDuration(0) // Fermiamo la transizione
-        setSize(200) // Manteniamo la dimensione massima
+        setGrowthDuration(0)
+        setSize(200)
         setTimeout(() => {
           setBreathePhase("Exhale")
-          setGrowthDuration(6)
+          setGrowthDuration(exhale)
           setSize(50)
           setTimeout(() => {
             setBreathePhase("Hold")
-            setGrowthDuration(0) // Fermiamo la transizione
-            setSize(50) // Manteniamo la dimensione minima
+            setGrowthDuration(0)
+            setSize(50)
             setTimeout(() => {
               startCycle()
-            }, 1500)
-          }, 6000)
-        }, 2000)
-      }, 4000) // Dopo 4 secondi, fermati
-    }, 500)
-
-    // Dopo un ulteriore 2 secondi, riduci la dimensione in 6 secondi
-
-    // Dopo che la riduzione è finita (6 secondi), fermati di nuovo per 2 secondi
+            }, time(hold))
+          }, time(exhale))
+        }, time(hold))
+      }, time(inhale))
+    }, 50)
   }
 
   return (

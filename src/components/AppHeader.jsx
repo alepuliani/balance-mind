@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { meditationsData } from "../data/meditationsData"
-// Definizione dello Header con Styled Components
+
 const Header = styled.header`
   background-color: ${(props) => props.theme.colors.creamColor};
   padding: 0 20px;
@@ -136,6 +136,7 @@ const AppHeader = () => {
           <Link
             className="z-10"
             to="/breathwork"
+            state={{ inhale: 4, hold: 2, exhale: 6 }}
             onClick={() => setMenuOpen(false)}
           >
             <Li>Breathwork</Li>

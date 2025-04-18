@@ -98,3 +98,42 @@ export const meditationBenefits = [
     color: "lightBlueColor"
   }
 ]
+
+export const emotions = [
+  {
+    name: "calm",
+    title: "I need calm",
+    text: "Feeling overwhelmed? Let’s find your peace.",
+    color: "greenColor"
+  },
+  {
+    name: "energy",
+    title: "I want energy",
+    text: "Need a boost of vitality? Recharge your energy.",
+    color: "yellowColor"
+  },
+  {
+    name: "sleep",
+    title: "I can’t sleep",
+    text: "Trouble sleeping? Let’s prepare your mind for rest.",
+    color: "lilacColor"
+  }
+]
+
+export const personalizedMeditations = [
+  {
+    name: "calm",
+    title: "Welcome to Your Moment of Calm",
+    text: "Take a deep breath, let go of the stress, and find your inner peace. Here is a short practice to help you relax and reconnect with your center."
+  },
+  {
+    name: "energy",
+    title: "Welcome to Your Energy Boost",
+    text: "Ready to recharge your body and mind? Let's awaken your energy and start your day with vitality."
+  },
+  {
+    name: "sleep",
+    title: "Welcome to Your Sleep Journey",
+    text: "It’s time to let go of the day’s thoughts and prepare for a peaceful night of rest. Follow this guided practice to drift into deep sleep."
+  }
+]

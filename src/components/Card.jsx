@@ -39,6 +39,5 @@ export default Card
 Card.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string,
-  meditation: PropTypes.object,
   className: PropTypes.string
 }
